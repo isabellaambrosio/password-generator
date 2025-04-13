@@ -5,6 +5,7 @@ let button = document.querySelector("button")
 let passwordOne = document.querySelector("#password-one")
 let passwordTwo = document.querySelector("#password-two")
 
+//Generate Password
 button.addEventListener("click", function() {
     let pwd1 = ""
     let pwd2 = ""
@@ -24,3 +25,23 @@ button.addEventListener("click", function() {
 
 
 
+//Copy to Clipboard
+passwordOne.addEventListener("click", function () {
+    const originalText = passwordOne.textContent
+    navigator.clipboard.writeText(originalText)
+
+    passwordOne.textContent = "Copied!"
+    setTimeout(() => {
+        passwordOne.textContent = originalText
+    }, 1000)
+})
+
+passwordTwo.addEventListener("click", function () {
+    const originalText = passwordTwo.textContent
+    navigator.clipboard.writeText(originalText)
+
+    passwordTwo.textContent = "Copied!"
+    setTimeout(() => {
+        passwordTwo.textContent = originalText
+    }, 1000)
+})
