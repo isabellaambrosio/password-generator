@@ -4,30 +4,23 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 let button = document.querySelector("button")
 let passwordOne = document.querySelector("#password-one")
 let passwordTwo = document.querySelector("#password-two")
-let isAlive = true
 
 button.addEventListener("click", function() {
+    let pwd1 = ""
+    let pwd2 = ""
     
-    if (isAlive) {
-        generatePassword()
-    } else {
-        passwordOne.textContent = ""
-        passwordTwo.textContent = ""
-        generatePassword()
-    }
-})
-
-function generatePassword() {
     for (let i = 0; i < 15; i++) {
                 
         let randomIndexOne = Math.floor( Math.random() * characters.length )
         let randomIndexTwo = Math.floor( Math.random() * characters.length )
         
-        passwordOne.textContent += characters[randomIndexOne]
-        passwordTwo.textContent += characters[randomIndexTwo]
-        
-        isAlive = false
+        pwd1 += characters[randomIndexOne]
+        pwd2 += characters[randomIndexTwo]        
     }
-}
+
+    passwordOne.textContent = pwd1
+    passwordTwo.textContent = pwd2
+})
+
 
 
